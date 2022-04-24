@@ -27,6 +27,13 @@ public class TestPlan {
         webForm.nonMatchCaseDropDown();
     }
 
+    @Test(testName = "'Clear filters' button functional check")
+    public static void clearFiltersRun() {
+        driver.get(Utils.BASE_URL);
+        WebForm webForm = new WebForm(driver);
+        webForm.clearFilters();
+    }
+
     @AfterSuite
     public static void cleanUp() {
         driver.manage().deleteAllCookies();

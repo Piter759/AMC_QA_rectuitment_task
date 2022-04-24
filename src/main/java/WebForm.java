@@ -42,4 +42,14 @@ public class WebForm extends PageObject {
         Assert.assertEquals((tabRow2.getText()), "Bondir");
     }
 
+    public void clearFilters() {
+        String isTextBoxEmpty;
+        Select dropDown = new Select(driver.findElement(By.id("search-column")));
+        dropDown.selectByVisibleText("Email");
+        this.textBox.sendKeys("@");
+        this.clearTextButton.click();
+        isTextBoxEmpty = this.textBox.getText();
+        Assert.assertEquals(isTextBoxEmpty, "");
+    }
+
 }

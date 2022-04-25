@@ -14,24 +14,31 @@ public class TestPlan {
     }
 
     @Test(testName = "Match case check for a particular value from the drop-down list")
-    public static void matchCaseRun() {
+    public static void matchCaseRun() throws Exception {
         driver.get(Utils.BASE_URL);
         WebForm webForm = new WebForm(driver);
         webForm.matchCaseDropDown();
     }
 
     @Test(testName = "Non-match case check for a particular value from the drop-down list")
-    public static void nonMatchCaseRun() {
+    public static void nonMatchCaseRun() throws Exception {
         driver.get(Utils.BASE_URL);
         WebForm webForm = new WebForm(driver);
         webForm.nonMatchCaseDropDown();
     }
 
     @Test(testName = "'Clear filters' button functional check")
-    public static void clearFiltersRun() {
+    public static void clearFiltersRun() throws Exception {
         driver.get(Utils.BASE_URL);
         WebForm webForm = new WebForm(driver);
         webForm.clearFilters();
+    }
+
+    @Test(testName = "Emails validity check")
+    public static void emailsValidityRun() throws Exception {
+        driver.get(Utils.BASE_URL);
+        WebForm webForm = new WebForm(driver);
+        webForm.emailsValidityCheck();
     }
 
     @AfterSuite

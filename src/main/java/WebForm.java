@@ -1,9 +1,14 @@
+import org.apache.commons.validator.routines.EmailValidator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class WebForm extends PageObject {
 
@@ -25,6 +30,15 @@ public class WebForm extends PageObject {
 
     @FindBy(id = "clear-button")
     private WebElement clearTextButton;
+
+    @FindBy(xpath = "/html/body/div/div/table/tbody/tr[1]/td[3]/a")
+    private WebElement emailAddress1;
+
+    @FindBy(xpath = "/html/body/div/div/table/tbody/tr[2]/td[3]/a")
+    private WebElement emailAddress2;
+
+    @FindBy(xpath = "/html/body/div/div/table/tbody/tr[3]/td[3]/a")
+    private WebElement emailAddress3;
 
     public void matchCaseDropDown() {
         this.checkBox.click();
@@ -52,4 +66,20 @@ public class WebForm extends PageObject {
         Assert.assertEquals(isTextBoxEmpty, "");
     }
 
+    public void emailsValidityCheck() {
+        boolean isValid;
+        String addressText1 = emailAddress1.getText();
+        String addressText2 = emailAddress2.getText();
+        String addressText3 = emailAddress3.getText();
+
+        List<String> emails = new ArrayList<>();
+        emails.add(addressText1);
+        emails.add(addressText2);
+        emails.add(addressText3);
+
+        for(String emailAddress : emails) {
+            isValid = EmailValidator.getInstance().isValid(emailAddress);
+            Assert.assertTrue(isValid);
+        }
+    }
 }

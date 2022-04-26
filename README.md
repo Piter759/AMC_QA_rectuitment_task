@@ -11,7 +11,7 @@ Run instruction:
 3) Download the test repo framework from: https://github.com/Piter759/AMC_QA_rectuitment_task (also save it to you local drive).
 4) All the necessary dependencies were added to POM file.
 5) The externall file which needs to be aligned with your local browser's version is the chromedriver.exe (check your Google's Chrome version and download the respective driver so that framework can run without any obstacles. In my framework's repo the ChromeDriver 100.0.4896.60 was used for Google Chrome browser (version 100.0.4896).
-6) Please exchange the chromedriver.exe file with downloaded from my repo's link with the one aligned to your local instance of Google Chrome browser.
+6) Please exchange the chromedriver.exe file downloaded along with my repo's content with the one aligned to your local instance of Google Chrome browser.
 7) Please set a JDK to 'Java_1.8' in project's settings in your local IDE environment.
 8) Once the above is mentined is set up accordingly please open please open the project's structure:
     a) AMC_QA_recrutiment_task_project -> src -> main -> java -> TestPlan.java
